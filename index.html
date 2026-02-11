@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Markdown 메모장</title>
+    <meta name="description" content="Markdown을 지원하는 실시간 프리뷰 메모장 애플리케이션">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- 사이드바 -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h1 class="app-title">📝 메모장</h1>
+                <button class="btn-new-memo" id="newMemoBtn">
+                    <span class="icon">+</span>
+                    새 메모
+                </button>
+            </div>
+            
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="메모 검색..." class="search-input">
+            </div>
+            
+            <div class="memo-list" id="memoList">
+                <!-- 메모 목록이 여기에 동적으로 추가됩니다 -->
+            </div>
+        </aside>
+        
+        <!-- 메인 에디터 -->
+        <main class="main-content">
+            <div class="editor-header">
+                <input type="text" id="memoTitle" class="memo-title-input" placeholder="제목 없음">
+                <div class="editor-actions">
+                    <button class="btn-action" id="deleteBtn" title="삭제">
+                        <span class="icon">🗑️</span>
+                    </button>
+                    <button class="btn-action" id="saveBtn" title="저장">
+                        <span class="icon">💾</span>
+                        저장
+                    </button>
+                </div>
+            </div>
+            
+            <div class="editor-container">
+                <div class="editor-pane">
+                    <div class="pane-header">
+                        <h3>편집기</h3>
+                        <span class="hint">Markdown 지원</span>
+                    </div>
+                    <textarea id="editor" class="editor-textarea" placeholder="여기에 메모를 작성하세요...
+
+# Markdown 사용 예시
+## 제목
+### 소제목
+
+**굵은 글씨** 또는 *기울임*
+
+- 목록 1
+- 목록 2
+
+1. 순서 있는 목록
+2. 두 번째 항목
+
+`코드`
+
+```javascript
+console.log('Hello World');
+```
+
+> 인용구
+
+[링크](https://example.com)"></textarea>
+                </div>
+                
+                <div class="divider"></div>
+                
+                <div class="preview-pane">
+                    <div class="pane-header">
+                        <h3>미리보기</h3>
+                        <span class="hint">실시간 렌더링</span>
+                    </div>
+                    <div id="preview" class="preview-content"></div>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/marked@11.1.1/marked.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
